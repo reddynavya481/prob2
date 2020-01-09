@@ -50,7 +50,103 @@ def kthlargest(ar,k):
   ar.remove(k2)
   return ar
 
+
+def insert(d):
+  if(not d):
+    root=int(input('enter root node'))
+    d[root]=''
+  else:
+    n=int(input('enter node'))
+    print('enter edges for',n)
+    ed=list(map(int,input().split()))
+    f=0
+    for i in ed:
+      if(i in d.keys()):
+        f=1
+        break
+    if(f==1):
+      d[n]=ed
+    d[n]=ed
+  return d
+
+def delete(d):
+  k=int(input('enter node to delete'))
+  d.pop(k)
+  return d
+
+def dsforgraph():
+  d={1:''}
+  while(1):
+    v=int(input("1 for inserting node and 2 for deleting it"))
+    if(v==1):
+      d=insert(d)
+    elif(v==2):
+      d=delete(d)
+    k=int(input('do u want to continue enter 1 else enter 0'))
+    if(k==0):
+      break
+  print(d)
+  return d
+    
+    
+
+
+
+
+
+def texttomorse(s1):
+  d={'A':'.-', 'B':'-...','C':'-.-.', 'D':'-..', 'E':'.','F':'..-.', 'G':'--.', 'H':'....', 'I':'..', 'J':'.---', 'K':'-.-', 'L':'.-..', 'M':'--', 'N':'-.', 'O':'---', 'P':'.--.', 'Q':'--.-', 'R':'.-.', 'S':'...', 'T':'-','U':'..-', 'V':'...-', 'W':'.--', 'X':'-..-', 'Y':'-.--', 'Z':'--..', '1':'.----', '2':'..---', '3':'...--','4':'....-', '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.', '0':'-----', ', ':'--..--', '.':'.-.-.-', '?':'..--..', '/':'-..-.', '-':'-....-','(':'-.--.', ')':'-.--.-'}
+  s1=s1.upper()
+  s=''
+  for i in s1:
+    s+=d[i]
+  return s
+
+
 def mulmatrices(m1,m2):
+  ar=[]
+  ar1=[]
+  res=0
+  for i in range(len(m1[0])):
+    res=0
+    ar=[]
+    for j in range(len(m2)):
+      res=0
+      for k in range(len(m2)):
+        res+=m1[i][k]*m2[k][j]
+      ar.append(res)
+    ar1.append(ar)
+  return ar1
+
+
+
+
+
+def rps(val):
+  if(val=='rock'):
+    res='paper'
+  elif(val=='paper'):
+    res='scissors'
+  elif(val=='scissors'):
+    res='rock'
+  return res
+
+
+
+def sortByLength1(l1):
+  l1.sort(key=len)
+  return l1
+
+
+
+
+  
+
+  
+
+      
+
+
 
   
 
