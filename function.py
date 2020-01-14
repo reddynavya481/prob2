@@ -69,10 +69,12 @@ def insert(d):
     d[n]=ed
   return d
 
+
 def delete(d):
   k=int(input('enter node to delete'))
   d.pop(k)
   return d
+
 
 def dsforgraph():
   d={1:''}
@@ -101,6 +103,32 @@ def texttomorse(s1):
   for i in s1:
     s+=d[i]
   return s
+
+
+
+def morsetotext(s1):
+  d={'A':'.-', 'B':'-...','C':'-.-.', 'D':'-..', 'E':'.','F':'..-.', 'G':'--.', 'H':'....', 'I':'..', 'J':'.---', 'K':'-.-', 'L':'.-..', 'M':'--', 'N':'-.', 'O':'---', 'P':'.--.', 'Q':'--.-', 'R':'.-.', 'S':'...', 'T':'-','U':'..-', 'V':'...-', 'W':'.--', 'X':'-..-', 'Y':'-.--', 'Z':'--..', '1':'.----', '2':'..---', '3':'...--','4':'....-', '5':'.....', '6':'-....', '7':'--...', '8':'---..', '9':'----.', '0':'-----', ', ':'--..--', '.':'.-.-.-', '?':'..--..', '/':'-..-.', '-':'-....-','(':'-.--.', ')':'-.--.-'}
+  s1 += ' '
+  kl=list(d.keys())
+  vl=list(d.values())
+  dec = '' 
+  wor = '' 
+  for i in s1: 
+    if (i != ' '): 
+      var = 0
+      wor += i 
+    else: 
+      var += 1
+      if var == 2 : 
+        dec += ' '
+      else: 
+        dec += kl[vl.index(wor)] 
+        wor = '' 
+  return dec 
+
+    
+    
+        
 
 
 def mulmatrices(m1,m2):
@@ -136,6 +164,32 @@ def rps(val):
 def sortByLength1(l1):
   l1.sort(key=len)
   return l1
+
+
+def sortByLength2(l1):
+  ar=[]
+  ar1=[]
+  res=[]
+  for i in l1:
+    ar.append([len(i),i])
+    ar1.append(len(i))
+  print(ar)
+  print(ar1)
+  for i in range(len(ar)):
+    k=ar1.count(ar[i][0])
+    ar[i][0]=k
+  ar.sort(key=lambda x:x[0])
+  for i in ar:
+    res.append(i[1])
+  return res
+
+
+
+
+
+
+
+
 
 
 
